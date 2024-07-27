@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[964],{63891:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/EgoMoose/typed-remote/blob/main","baseUrl":"/typed-remote/","classOrder":[],"apiCategories":[]}')}}]);
