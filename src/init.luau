@@ -114,7 +114,7 @@ local TypedRemote = {}
 	in each call.
 
 	```lua
-	-- Create RF and RE functions that use the current script as the instance parent:
+	-- Create RF, RE, and URE functions that use the current script as the instance parent:
 	local RF, RE, URE = TypedRemote.parent(script)
 
 	local remoteFunc = RF("RemoteFunc")
@@ -126,7 +126,7 @@ function TypedRemote.parent(parent: Instance)
 	end, function(name: string)
 		return TypedRemote.event(name, parent)
 	end, function(name: string)
-		return TypedRemote.event(name, parent)
+		return TypedRemote.unreliableEvent(name, parent)
 	end
 end
 
@@ -182,7 +182,7 @@ function TypedRemote.unreliableEvent(name: string, parent: Instance?): Unreliabl
 		re.Parent = if parent then parent else script
 	else
 		re = (if parent then parent else script):WaitForChild(name)
-		assert(re:IsA("UnreliableRemoteEvent"), "expected remote event")
+		assert(re:IsA("UnreliableRemoteEvent"), "expected unreliable remote event")
 	end
 	return re
 end
